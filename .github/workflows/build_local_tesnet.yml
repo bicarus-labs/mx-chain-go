@@ -1,0 +1,31 @@
+name: Build local testnet
+
+on:
+  pull_request:
+    branches: [ master, rc/* ]
+    types: [opened, ready_for_review]
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        runs-on: [ubuntu-latest]
+    runs-on: ${{ matrix.runs-on }}
+    name: Build
+    steps:
+      - name: Set up Go 1.20.7
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.20.7
+        id: go
+
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v3
+
+      - name: Get dependencies
+        run: |
+          cd ${GITHUB_WORKSPACE}/scripts/testnet
+          ./prerequisites.sh
+          ./config.sh
