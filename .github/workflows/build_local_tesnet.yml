@@ -36,4 +36,6 @@ jobs:
           export TESTNETDIR=${GITHUB_WORKSPACE}/docker-testnet
           ./prepare.sh
           
-          
+      - name: Docker
+        run: |
+          docker --version
