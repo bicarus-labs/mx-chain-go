@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: multiversx/mx-chain-deploy-go
-          path: ../mx-chain-deploy-go
+          path: mx-chain-deploy-go
 
       - name: Generate config
         run: |

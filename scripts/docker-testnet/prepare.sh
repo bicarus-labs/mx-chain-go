@@ -8,7 +8,9 @@ MULTIVERSXTESTNETSCRIPTSDIR="$(dirname "$DOCKERTESTNETDIR")/testnet"
 
 source "$MULTIVERSXTESTNETSCRIPTSDIR/variables.sh"
 source "$MULTIVERSXTESTNETSCRIPTSDIR/include/config.sh"
-source "$MULTIVERSXTESTNETSCRIPTSDIR/include/build.sh"
+source "$MULTIVERSXTESTNETSCRIPTSDIR/include/build.sh"\
+
+echo ${MULTIVERSXDIR}
 
 prepareFolders
 
