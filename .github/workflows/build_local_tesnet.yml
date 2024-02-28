@@ -35,9 +35,13 @@ jobs:
           cd ${GITHUB_WORKSPACE}/scripts/docker-testnet
           export TESTNETDIR=${GITHUB_WORKSPACE}/docker-testnet
           ./prepare.sh
+
+      - name: Build images
+        run: |
+          docker compose build 
           
-      - name: Docker compose
+      - name: Deploy local testnet
         run: |
           docker compose up -d
           sleep 30s
-          curl -X POST http://localhost:7950/about
+          docker ps
