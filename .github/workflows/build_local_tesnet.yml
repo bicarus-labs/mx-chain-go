@@ -35,3 +35,5 @@ jobs:
           cd ${GITHUB_WORKSPACE}/scripts/docker-testnet
           export TESTNETDIR=${GITHUB_WORKSPACE}/docker-testnet
           ./prepare.sh
+          
+          

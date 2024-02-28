@@ -17,7 +17,7 @@ export USE_TXGEN=0
 # Path where the testnet will be instantiated. This folder is assumed to not
 # exist, but it doesn't matter if it already does. It will be created if not,
 # anyway.
-export TESTNETDIR="$HOME/MultiversX/testnet"
+export TESTNETDIR="$MULTIVERSXDIR/MultiversX/testnet"
 
 # Path to mx-chain-deploy-go, branch: master. Default: near mx-chain-go.
 export CONFIGGENERATORDIR="$MULTIVERSXDIR/mx-chain-deploy-go/cmd/filegen"

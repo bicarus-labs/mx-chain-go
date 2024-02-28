@@ -11,7 +11,7 @@ services:
       local-testnet:
         ipv4_address: 172.18.0.2
     volumes:
-      - ${DOCKER_CONFIG_PATH}/seednode/config:/go/mx-chain-go/cmd/seednode/config
+      - ${TESTNETDIR}/seednode/config:/go/mx-chain-go/cmd/seednode/config
 
   validator00:
     image: node:dev
@@ -24,7 +24,7 @@ services:
       local-testnet:
         ipv4_address: 172.18.0.3
     volumes:
-      - ${DOCKER_CONFIG_PATH}/node/config:/go/mx-chain-go/cmd/node/config
+      - ${TESTNETDIR}/node/config:/go/mx-chain-go/cmd/node/config
     depends_on: [seednode]
 
   validator01:
@@ -38,7 +38,7 @@ services:
       local-testnet:
         ipv4_address: 172.18.0.4
     volumes:
-      - ${DOCKER_CONFIG_PATH}/node/config:/go/mx-chain-go/cmd/node/config
+      - ${TESTNETDIR}/node/config:/go/mx-chain-go/cmd/node/config
     depends_on: [seednode]
 
   validator02:
@@ -52,7 +52,7 @@ services:
       local-testnet:
         ipv4_address: 172.18.0.5
     volumes:
-      - /${DOCKER_CONFIG_PATH}/node/config:/go/mx-chain-go/cmd/node/config
+      - ${TESTNETDIR}/node/config:/go/mx-chain-go/cmd/node/config
     depends_on: [seednode]
 
   validator03:
@@ -66,7 +66,7 @@ services:
       local-testnet:
         ipv4_address: 172.18.0.6
     volumes:
-      - ${DOCKER_CONFIG_PATH}/node/config:/go/mx-chain-go/cmd/node/config
+      - ${TESTNETDIR}/node/config:/go/mx-chain-go/cmd/node/config
     depends_on: [ seednode ]
 
   validator04:
@@ -80,7 +80,7 @@ services:
       local-testnet:
         ipv4_address: 172.18.0.7
     volumes:
-      - ${DOCKER_CONFIG_PATH}/node/config:/go/mx-chain-go/cmd/node/config
+      - ${TESTNETDIR}/node/config:/go/mx-chain-go/cmd/node/config
     depends_on: [ seednode ]
 
   validator05:
@@ -94,7 +94,7 @@ services:
       local-testnet:
         ipv4_address: 172.18.0.8
     volumes:
-      - ${DOCKER_CONFIG_PATH}/node/config:/go/mx-chain-go/cmd/node/config
+      - ${TESTNETDIR}/node/config:/go/mx-chain-go/cmd/node/config
     depends_on: [ seednode ]
 
 
@@ -109,7 +109,7 @@ services:
       local-testnet:
         ipv4_address: 172.18.0.9
     volumes:
-      - ${DOCKER_CONFIG_PATH}/node/config:/go/mx-chain-go/cmd/node/config
+      - ${TESTNETDIR}/node/config:/go/mx-chain-go/cmd/node/config
     depends_on: [ seednode ]
 
   validator07:
@@ -123,7 +123,7 @@ services:
       local-testnet:
         ipv4_address: 172.18.0.10
     volumes:
-      - ${DOCKER_CONFIG_PATH}/node/config:/go/mx-chain-go/cmd/node/config
+      - ${TESTNETDIR}/node/config:/go/mx-chain-go/cmd/node/config
     depends_on: [ seednode ]
 
   validator08:
@@ -137,7 +137,7 @@ services:
       local-testnet:
         ipv4_address: 172.18.0.11
     volumes:
-      - ${DOCKER_CONFIG_PATH}/node/config:/go/mx-chain-go/cmd/node/config
+      - ${TESTNETDIR}/node/config:/go/mx-chain-go/cmd/node/config
     depends_on: [ seednode ]
 
 
@@ -150,7 +150,7 @@ services:
     networks:
       local-testnet:
     volumes:
-      - ${DOCKER_CONFIG_PATH}/proxy/config:/mx-chain-proxy-go/cmd/proxy/config
+      - ${TESTNETDIR}/proxy/config:/mx-chain-proxy-go/cmd/proxy/config
 
 networks:
   local-testnet:
