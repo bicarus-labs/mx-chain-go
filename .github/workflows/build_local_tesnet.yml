@@ -36,11 +36,10 @@ jobs:
           cd ${GITHUB_WORKSPACE}/scripts/docker-testnet
           export TESTNETDIR=${GITHUB_WORKSPACE}/docker-testnet
           ./prepare.sh
-          echo "TESTNETDIR=${TESTNETDIR}" >> $GITHUB_OUTPUT
           
       - name: Deploy local testnet
         run: |
-          echo $TESTNETDIR
+          export TESTNETDIR=${GITHUB_WORKSPACE}/docker-testnet
           docker compose up -d
           sleep 30s
           docker ps -a
