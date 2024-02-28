@@ -6,12 +6,9 @@ export DOCKERTESTNETDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&
 
 MULTIVERSXTESTNETSCRIPTSDIR="$(dirname "$DOCKERTESTNETDIR")/testnet"
 
-source "$MULTIVERSXTESTNETSCRIPTSDIR/variables.sh"
+source "$DOCKERTESTNETDIR/variables.sh"
 source "$MULTIVERSXTESTNETSCRIPTSDIR/include/config.sh"
 source "$MULTIVERSXTESTNETSCRIPTSDIR/include/build.sh"
-
-export CONFIGGENERATORDIR="${MULTIVERSXDIR}/mx-chain-go/mx-chain-deploy-go/cmd/filegen"
-export CONFIGGENERATOR="$CONFIGGENERATORDIR/filegen"
 
 prepareFolders
 
