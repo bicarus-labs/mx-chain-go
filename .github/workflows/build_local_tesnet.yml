@@ -44,4 +44,4 @@ jobs:
         run: |
           docker compose up -d
           sleep 30s
-          docker ps
+          docker ps -a
