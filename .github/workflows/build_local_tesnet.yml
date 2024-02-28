@@ -36,6 +36,8 @@ jobs:
           export TESTNETDIR=${GITHUB_WORKSPACE}/docker-testnet
           ./prepare.sh
           
-      - name: Docker
+      - name: Docker compose
         run: |
-          docker --version
+          docker compose up -d
+          sleep 30s
+          curl -X POST http://localhost:7950/about
