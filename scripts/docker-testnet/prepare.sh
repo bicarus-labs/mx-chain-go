@@ -12,7 +12,7 @@ source "$MULTIVERSXTESTNETSCRIPTSDIR/include/build.sh"
 
 export CONFIGGENERATORDIR="${MULTIVERSXDIR}/mx-chain-deploy-go/cmd/filegen"
 
-cd ${MULTIVERSXDIR}
+cd ${MULTIVERSXDIR}/mx-chain-deploy-go
 
 ls -la
 
