@@ -42,6 +42,7 @@ jobs:
           
       - name: Deploy local testnet
         run: |
+          echo ${TESTNETDIR}
           docker compose up -d
           sleep 30s
           docker ps -a
