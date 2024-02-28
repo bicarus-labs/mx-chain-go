@@ -10,7 +10,7 @@ source "$MULTIVERSXTESTNETSCRIPTSDIR/variables.sh"
 source "$MULTIVERSXTESTNETSCRIPTSDIR/include/config.sh"
 source "$MULTIVERSXTESTNETSCRIPTSDIR/include/build.sh"
 
-export CONFIGGENERATORDIR="${HOME}/mx-chain-deploy-go/cmd/filegen"
+export CONFIGGENERATORDIR="${MULTIVERSXDIR}/mx-chain-go/mx-chain-deploy-go/cmd/filegen"
 export CONFIGGENERATOR="$CONFIGGENERATORDIR/filegen"
 
 prepareFolders
