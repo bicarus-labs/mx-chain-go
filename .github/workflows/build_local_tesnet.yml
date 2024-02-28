@@ -31,18 +31,16 @@ jobs:
           path: mx-chain-deploy-go
 
       - name: Generate config
+        id: generate-config
         run: |
           cd ${GITHUB_WORKSPACE}/scripts/docker-testnet
           export TESTNETDIR=${GITHUB_WORKSPACE}/docker-testnet
           ./prepare.sh
-
-      - name: Build images
-        run: |
-          docker compose build 
+          echo "TESTNETDIR=${TESTNETDIR}" >> $GITHUB_OUTPUT
           
       - name: Deploy local testnet
         run: |
-          echo ${TESTNETDIR}
+          echo $TESTNETDIR
           docker compose up -d
           sleep 30s
           docker ps -a
