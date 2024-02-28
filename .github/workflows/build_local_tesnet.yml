@@ -41,5 +41,5 @@ jobs:
         run: |
           export TESTNETDIR=${GITHUB_WORKSPACE}/docker-testnet
           docker compose up -d
-          sleep 30s
           docker ps -a
+          docker logs seednode
