@@ -125,7 +125,11 @@ fi
 # Proxy configuration
 
 # Path to mx-chain-proxy-go, branch: master. Default: near mx-chain-go.
-export PROXYDIR="$(dirname $MULTIVERSXDIR)/mx-chain-proxy-go/cmd/proxy"
+if [[ -n $CI_RUN ]]; then
+  export PROXYDIR="$(dirname $MULTIVERSXDIR)/mx-chain-go/mx-chain-proxy-go/cmd/proxy"
+else
+   export PROXYDIR="$(dirname $MULTIVERSXDIR)/mx-chain-proxy-go/cmd/proxy"
+fi
 export PROXY=$PROXYDIR/proxy    # Leave unchanged.
 
 export PORT_PROXY="7950"
