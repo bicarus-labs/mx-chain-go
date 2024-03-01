@@ -30,10 +30,17 @@ jobs:
           repository: multiversx/mx-chain-deploy-go
           path: mx-chain-deploy-go
 
-      - name: Build node and seednode images
+      - name: Check out mx-chain-proxy-go
+        uses: actions/checkout@v4
+        with:
+          repository: multiversx/mx-chain-proxy-go
+          path: mx-chain-proxy-go
+
+      - name: Build images
         run: |
           docker build -f docker/node/Dockerfile . -t node:dev
           docker build -f docker/seednode/Dockerfile . -t seednode:dev
+          docker build -f mx-chain-proxy-go/docker/Dockerfile . -t proxy:dev
 
       - name: Start localnet
         id: generate-config
