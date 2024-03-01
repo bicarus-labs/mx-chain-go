@@ -29,17 +29,22 @@ jobs:
         with:
           repository: multiversx/mx-chain-deploy-go
           path: mx-chain-deploy-go
-          run: | 
-            mv ${GITHUB_WORKSPACE}/mx-chain-deploy-go ..
-            cd ..
-            ls -la
 
-#      - name: Generate config
-#        id: generate-config
-#        run: |
-#          cd ${GITHUB_WORKSPACE}/scripts/docker-testnet
-#          export TESTNETDIR=${GITHUB_WORKSPACE}/docker-testnet
-#          ./prepare.sh
+      - name: Build node and seednode images
+        run: |
+          docker build -f docker/node/Dockerfile . -t node:dev
+          docker build -f docker/seednode/Dockerfile . -t node:dev
+
+      - name: Start localnet
+        id: generate-config
+        run: |
+          cd ${GITHUB_WORKSPACE}/scripts/docker-testnet
+          export TESTNETDIR=${GITHUB_WORKSPACE}/docker-testnet
+          export CI_RUN=1
+          ./start.sh
+          echo "Check everything is alright. Remove once confirmed"
+          docker ps
+          curl http://localhost:7950
 #
 #      - name: Deploy local testnet
 #        run: |

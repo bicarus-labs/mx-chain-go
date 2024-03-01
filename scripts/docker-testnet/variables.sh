@@ -19,8 +19,15 @@ export USE_TXGEN=0
 # anyway.
 export TESTNETDIR="$HOME/MultiversX/testnet"
 
+
 # Path to mx-chain-deploy-go, branch: master. Default: near mx-chain-go.
-export CONFIGGENERATORDIR="$(dirname $MULTIVERSXDIR)/mx-chain-deploy-go/cmd/filegen"
+
+if [[ -n $CI_RUN ]]; then
+  export CONFIGGENERATORDIR="$(dirname $MULTIVERSXDIR)/mx-chain-go/mx-chain-deploy-go/cmd/filegen"
+else
+  export CONFIGGENERATORDIR="$(dirname $MULTIVERSXDIR)/mx-chain-deploy-go/cmd/filegen"
+fi
+
 export CONFIGGENERATOR="$CONFIGGENERATORDIR/filegen"    # Leave unchanged.
 export CONFIGGENERATOROUTPUTDIR="output"
 
@@ -54,7 +61,7 @@ export OBSERVERS_ANTIFLOOD_DISABLE=0
 # Shard structure
 export SHARDCOUNT=2
 export SHARD_VALIDATORCOUNT=3
-export SHARD_OBSERVERCOUNT=0
+export SHARD_OBSERVERCOUNT=1
 export SHARD_CONSENSUS_SIZE=3
 
 # Metashard structure

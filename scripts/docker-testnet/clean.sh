@@ -6,11 +6,11 @@ export MULTIVERSXTESTNETSCRIPTSDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/d
 
 source "$MULTIVERSXTESTNETSCRIPTSDIR/variables.sh"
 
-echo "Stopping all containers"
+echo "Stopping all containers..."
 docker stop $(docker ps -a -q)
 
-echo "Removing all containers"
-docker container prune
+echo "Removing all containers..."
+docker container prune -f
 
 echo "Removing $TESTNETDIR..."
 rm -rf $TESTNETDIR
