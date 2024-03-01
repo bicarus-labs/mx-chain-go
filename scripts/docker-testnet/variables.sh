@@ -17,10 +17,10 @@ export USE_TXGEN=0
 # Path where the testnet will be instantiated. This folder is assumed to not
 # exist, but it doesn't matter if it already does. It will be created if not,
 # anyway.
-export TESTNETDIR="$MULTIVERSXDIR/MultiversX/testnet"
+export TESTNETDIR="$HOME/MultiversX/testnet"
 
 # Path to mx-chain-deploy-go, branch: master. Default: near mx-chain-go.
-export CONFIGGENERATORDIR="$MULTIVERSXDIR/mx-chain-deploy-go/cmd/filegen"
+export CONFIGGENERATORDIR="$(dirname $MULTIVERSXDIR)/mx-chain-deploy-go/cmd/filegen"
 export CONFIGGENERATOR="$CONFIGGENERATORDIR/filegen"    # Leave unchanged.
 export CONFIGGENERATOROUTPUTDIR="output"
 
@@ -54,7 +54,7 @@ export OBSERVERS_ANTIFLOOD_DISABLE=0
 # Shard structure
 export SHARDCOUNT=2
 export SHARD_VALIDATORCOUNT=3
-export SHARD_OBSERVERCOUNT=1
+export SHARD_OBSERVERCOUNT=0
 export SHARD_CONSENSUS_SIZE=3
 
 # Metashard structure
@@ -86,7 +86,7 @@ export ALWAYS_NEW_APP_VERSION=0
 export ALWAYS_UPDATE_CONFIGS=1
 
 # IP of the seednode
-export SEEDNODE_IP="172.18.0.2"
+export SEEDNODE_IP="172.17.0.2"
 
 # Ports used by the Nodes
 export PORT_SEEDNODE="9999"
