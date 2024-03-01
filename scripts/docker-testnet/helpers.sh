@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 startSeedNode() {
-  docker run -d --name seednode:dev -v ${TESTNETDIR}/seednode/config:/go/mx-chain-go/cmd/seednode/config seednode:dev \
+  docker run -d --name seednode -v ${TESTNETDIR}/seednode/config:/go/mx-chain-go/cmd/seednode/config seednode:dev \
   --rest-api-interface=0.0.0.0:10000
 }
 
