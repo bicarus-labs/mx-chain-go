@@ -33,7 +33,7 @@ jobs:
       - name: Build node and seednode images
         run: |
           docker build -f docker/node/Dockerfile . -t node:dev
-          docker build -f docker/seednode/Dockerfile . -t node:dev
+          docker build -f docker/seednode/Dockerfile . -t seednode:dev
 
       - name: Start localnet
         id: generate-config
