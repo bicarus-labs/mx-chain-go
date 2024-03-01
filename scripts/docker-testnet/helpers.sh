@@ -149,5 +149,5 @@ startProxyDocker() {
   docker run -d --name "proxy" \
            -p $PORT_PROXY:8080 \
            -v $TESTNETDIR/proxy/config:/mx-chain-proxy-go/cmd/proxy/config \
-           proxy:dev
+           multiversx/chain-proxy:v1.1.45-sp4
 }
