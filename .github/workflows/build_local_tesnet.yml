@@ -51,6 +51,7 @@ jobs:
           ./start.sh
           echo "Check everything is alright. Remove once confirmed"
           docker ps
+          sleep 1m
           curl http://localhost:7950
 #
 #      - name: Deploy local testnet
