@@ -18,10 +18,16 @@ cloneDependencies(){
 
   mkdir "$SOVEREIGN_DIR"
 
-  git clone https://github.com/multiversx/mx-chain-go "$SOVEREIGN_DIR/mx-chain-go"
-  cd $SOVEREIGN_DIR/mx-chain-go
-  git checkout ba02d42ce3f2c2b615e56aa8905f25e68e078ec4
-  cd ../..
+  rm -rf "$SOVEREIGN_DIR/mx-chain-go"
+  mkdir -p /tmp/ss/mx-chain-go
+
+  cp -r $(dirname $(dirname $(dirname $CURRENT_DIR))) /tmp/ss/mx-chain-go
+  cp -r /tmp/ss/mx-chain-go/* "$SOVEREIGN_DIR/mx-chain-go"
+
+  # git clone https://github.com/multiversx/mx-chain-go "$SOVEREIGN_DIR/mx-chain-go"
+  # cd $SOVEREIGN_DIR/mx-chain-go
+  # git checkout ba02d42ce3f2c2b615e56aa8905f25e68e078ec4
+  # cd ../..
 
   git clone https://github.com/multiversx/mx-chain-deploy-go "$SOVEREIGN_DIR/mx-chain-deploy-go"
   checkoutStableVersion mx-chain-deploy-go feat/sovereign
