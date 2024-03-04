@@ -24,9 +24,11 @@ cloneDependencies(){
   mkdir "$TESTNET_DIR"
 
   git clone https://github.com/multiversx/mx-chain-go "$TESTNET_DIR/mx-chain-go"
-  checkoutStableVersion mx-chain-go 0bcc42220f436b40db3f15cb611e2713d43c04fa
+  checkoutStableVersion mx-chain-go ba02d42ce3f2c2b615e56aa8905f25e68e078ec4
 
   git clone https://github.com/multiversx/mx-chain-deploy-go "$TESTNET_DIR/mx-chain-deploy-go"
+  checkoutStableVersion mx-chain-deploy-go feat/sovereign
+
   git clone https://github.com/multiversx/mx-chain-proxy-go "$TESTNET_DIR/mx-chain-proxy-go"
 }
 
@@ -86,7 +88,8 @@ testnetUpdateVariables(){
   sed -i 's/export PORT_PROXY=.*/export PORT_PROXY="7960"/' "$VARIABLES_PATH"
   sed -i 's/export PORT_TXGEN=.*/export PORT_TXGEN="7961"/' "$VARIABLES_PATH"
 
-  sed -i 's/export USETMUX=.*/export USETMUX=0/' "$VARIABLES_PATH"
+  sed -i 's/export USETMUX=.*/export USETMUX=1/' "$VARIABLES_PATH"
+  sed -i 's/export SOVEREIGN_DEPLOY=.*/export SOVEREIGN_DEPLOY=0/' "$VARIABLES_PATH"
 }
 
 testnetNew(){
@@ -98,17 +101,17 @@ testnetNew(){
 }
 
 testnetStart(){
-  cd "$TESTNET_DIR" && \
+  cd "$TESTNET_OUTPUT_DIR" && \
     ./mx-chain-go/scripts/testnet/start.sh
 }
 
 testnetReset(){
-  cd "$TESTNET_DIR" && \
+  cd "$TESTNET_OUTPUT_DIR" && \
     ./mx-chain-go/scripts/testnet/reset.sh
 }
 
 testnetStop(){
-  cd "$TESTNET_DIR" && \
+  cd "$TESTNET_OUTPUT_DIR" && \
     ./mx-chain-go/scripts/testnet/stop.sh
 }
 

@@ -20,10 +20,12 @@ cloneDependencies(){
 
   git clone https://github.com/multiversx/mx-chain-go "$SOVEREIGN_DIR/mx-chain-go"
   cd $SOVEREIGN_DIR/mx-chain-go
-  git checkout 0bcc42220f436b40db3f15cb611e2713d43c04fa
+  git checkout ba02d42ce3f2c2b615e56aa8905f25e68e078ec4
   cd ../..
 
   git clone https://github.com/multiversx/mx-chain-deploy-go "$SOVEREIGN_DIR/mx-chain-deploy-go"
+  checkoutStableVersion mx-chain-deploy-go feat/sovereign
+
   git clone https://github.com/multiversx/mx-chain-proxy-go "$SOVEREIGN_DIR/mx-chain-proxy-go"
 }
 
@@ -65,12 +67,12 @@ sovereignNew(){
 }
 
 sovereignStart(){
-  cd "$SOVEREIGN_DIR" && \
+  cd "$SOVEREIGN_OUTPUT_DIR" && \
     ./mx-chain-go/scripts/testnet/sovereignStart.sh
 }
 
 sovereignStop(){
-  cd "$SOVEREIGN_DIR" && \
+  cd "$SOVEREIGN_OUTPUT_DIR" && \
     ./mx-chain-go/scripts/testnet/stop.sh
 }
 

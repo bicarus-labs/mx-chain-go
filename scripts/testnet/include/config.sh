@@ -43,8 +43,8 @@ copyConfig() {
   fi
 
   if [ "$SOVEREIGN_DEPLOY" -eq 1 ]; then
-      cp "$MULTIVERSXDIR"/../mx-chain-sovereign-bridge-go/cert/cmd/cert/private_key.pem ./node/config
-      cp "$MULTIVERSXDIR"/../mx-chain-sovereign-bridge-go/cert/cmd/cert/certificate.crt ./node/config
+      cp "$(dirname $MULTIVERSXDIR)"/mx-chain-sovereign-bridge-go/cert/cmd/cert/private_key.pem ./node/config
+      cp "$(dirname $MULTIVERSXDIR)"/mx-chain-sovereign-bridge-go/cert/cmd/cert/certificate.crt ./node/config
   fi
 
   echo "Configuration files copied from the configuration generator to the working directories of the executables."
